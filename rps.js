@@ -1,6 +1,6 @@
 let arrayRockPaperScissors = ["rock", "paper", "scissors"];
-let computerWins;
-let playerWins;
+let computerWins = 0;
+let playerWins = 0;
 
 for (let i = 0; i<=4; i++) {
     
@@ -18,38 +18,51 @@ console.log("Player's choice:", (playerChoice));
 
 function singleRound(computerChoice, playerChoice){
     if (computerChoice == "rock" && playerChoice == "scissors"){
-        let roundResult = "You lose! Rock beats Scissors";
-        return roundResult;
+       console.log("You lose! Rock beats Scissors");
+        computerWins += 1;
+        return computerWins;
       } 
       else if (computerChoice == "paper" && playerChoice == "rock"){
-        let roundResult = "You lose! Paper beats Rock";
-        return roundResult;
+        console.log("You lose! Paper beats Rock");
+        computerWins += 1;
+        return computerWins;
       } 
       else if (computerChoice == "scissors" && playerChoice == "paper"){
-        let roundResult = "You lose! Scissors beat Paper";
-        return roundResult;
+        console.log("You lose! Scissors beats Paper");
+        computerWins += 1;
+        return computerWins;
       }
       else if (computerChoice == "rock" && playerChoice == "paper"){
-        let roundResult = "You win! Paper beats Rock";
-        return roundResult;
+        console.log("You win! Paper beats Rock");
+        playerWins += 1;
+        return playerWins;
       }
       else if (computerChoice == "paper" && playerChoice == "scissors"){
-        let roundResult = "You win! Scissors beat paper";
-        return roundResult;
+        console.log("You win! Scissors beat Paper");
+        playerWins += 1;
+        return playerWins;
       }
       else if (computerChoice == "scissors" && playerChoice == "rock"){
-        let roundResult = "You win! Rock beats Scissors";
-        return roundResult;
+        console.log("You win! Rock beats Scissors");
+        playerWins += 1;
+        return playerWins;
       }
       else if(computerChoice == playerChoice){
           let roundResult = `Computer has also chosen ${playerChoice}, it's a tie!`;
            return roundResult;
         }
         else{
-            console.log("Wrong input")
+            console.log("Wrong input");
         }
     };
 console.log(singleRound(computerChoice, playerChoice));
 
 
+}
+if(computerWins > playerWins) {
+    console.log(`You lost - Computer:${computerWins} vs You: ${playerWins} `);
+} else if (computerWins < playerWins){
+    console.log(`You won - Computer:${computerWins} vs You: ${playerWins} `);
+} else {
+    console.log(`Its a tie! Computer:${computerWins} vs You: ${playerWins} `)
 }
