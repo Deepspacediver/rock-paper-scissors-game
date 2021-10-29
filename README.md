@@ -27,3 +27,15 @@ compare choice in all scenarios and output who wins
 
     else
         output its a tie
+
+
+
+        declare computerWins
+        declare playerWins
+
+        make every loop end with returning :
+        if computer wins - computerWins += 1
+        if player wins - player += 1
+
+        outside of loop compare and if computer > player computer wins
+                                    if computer < player player wins
