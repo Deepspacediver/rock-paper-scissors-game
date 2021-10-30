@@ -1,4 +1,4 @@
-let arrayRockPaperScissors = ["rock", "paper", "scissors"];
+const arrayRockPaperScissors = ["rock", "paper", "scissors"];
 let computerWins = 0;
 let playerWins = 0;
 
@@ -10,7 +10,7 @@ function computerPlay(){
     return computerChoice;
 };
 let computerChoice = computerPlay();
-console.log(computerChoice);
+console.log("Computer's choice", computerChoice);
 
 let playerChoice = prompt("Choose Rock, Paper or Scissors: ").toLowerCase();
 console.log("Player's choice:", (playerChoice));
