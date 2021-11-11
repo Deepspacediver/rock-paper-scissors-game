@@ -1,22 +1,29 @@
 const arrayRockPaperScissors = ["rock", "paper", "scissors"];
 let computerWins = 0;
 let playerWins = 0;
-
-for (let i = 0; i<=4; i++) {
-    
+let computerChoice;
 
 function computerPlay(){
-    let computerChoice = arrayRockPaperScissors[Math.floor(Math.random() * arrayRockPaperScissors.length)];
+    computerChoice = arrayRockPaperScissors[Math.floor(Math.random() * arrayRockPaperScissors.length)];
     return computerChoice;
 };
-let computerChoice = computerPlay();
-console.log("Computer's choice", computerChoice);
+ computerChoice = computerPlay();
 
-let playerChoice = prompt("Choose Rock, Paper or Scissors: ").toLowerCase();
-console.log("Player's choice:", (playerChoice));
+const buttons = document.querySelectorAll('button');
+//console.log(buttons)
+
+function playerChooses(e){
+  let storedPlayerChoice = e.target.outerText.toLowerCase();
+  singleRound(computerChoice, storedPlayerChoice);
+}
+
+
+
+buttons.forEach(button => button.addEventListener('click', playerChooses))
 
 
 function singleRound(computerChoice, playerChoice){
+  computerPlay();
     if (computerChoice == "rock" && playerChoice == "scissors"){
        console.log("You lose! Rock beats Scissors");
         computerWins += 1;
@@ -49,20 +56,20 @@ function singleRound(computerChoice, playerChoice){
       }
       else if(computerChoice == playerChoice){
           let roundResult = `Computer has also chosen ${playerChoice}, it's a tie!`;
-           return roundResult;
+           console.log(roundResult);
         }
         else{
             console.log("Wrong input");
         }
     };
-console.log(singleRound(computerChoice, playerChoice));
+//console.log(singleRound(computerChoice, playerChoice));
 
 
-}
-if(computerWins > playerWins) {
-    console.log(`You lost - Computer:${computerWins} vs You: ${playerWins} `);
-} else if (computerWins < playerWins){
-    console.log(`You won - Computer:${computerWins} vs You: ${playerWins} `);
-} else {
-    console.log(`Its a tie! Computer:${computerWins} vs You: ${playerWins} `)
-}
+//}
+//if(computerWins > playerWins) {
+//    console.log(`You lost - Computer:${computerWins} vs You: ${playerWins} `);
+//} else if (computerWins < playerWins){
+//    console.log(`You won - Computer:${computerWins} vs You: ${playerWins} `);
+//} else {
+///    console.log(`Its a tie! Computer:${computerWins} vs You: ${playerWins} `)
+///}
