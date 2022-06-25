@@ -1,3 +1,9 @@
+RPS game with buttons, minal UI. 
+----
+Pseudocode:
+
+
+
 function computerPlay
 provide code with "Rock" "Paper" and "Scissors"
 Let one of the 3 get randomly chosen
